@@ -1,29 +1,32 @@
 import { Award, Users, Globe, Zap } from 'lucide-react';
-
-const highlights = [
-  {
-    icon: Award,
-    title: '8+ Years Excellence',
-    description: 'Proven expertise in premium travel services and client satisfaction',
-  },
-  {
-    icon: Users,
-    title: 'Expert Consultants',
-    description: 'Dedicated professionals providing personalized travel planning',
-  },
-  {
-    icon: Globe,
-    title: 'Global Partnerships',
-    description: 'Strategic alliances with premium providers worldwide',
-  },
-  {
-    icon: Zap,
-    title: 'Competitive Pricing',
-    description: 'Luxury experiences without the luxury price tag',
-  },
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+
+  const highlights = [
+    {
+      icon: Award,
+      titleKey: 'about.highlight1.title',
+      descKey: 'about.highlight1.desc',
+    },
+    {
+      icon: Users,
+      titleKey: 'about.highlight2.title',
+      descKey: 'about.highlight2.desc',
+    },
+    {
+      icon: Globe,
+      titleKey: 'about.highlight3.title',
+      descKey: 'about.highlight3.desc',
+    },
+    {
+      icon: Zap,
+      titleKey: 'about.highlight4.title',
+      descKey: 'about.highlight4.desc',
+    },
+  ];
+
   return (
     <section id="about" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,44 +34,44 @@ export default function About() {
           <div>
             <div className="inline-block mb-6">
               <div className="px-4 py-2 rounded-full border border-yellow-400/30 bg-yellow-400/5 backdrop-blur">
-                <span className="text-yellow-400 text-sm font-semibold">About LiaTravel</span>
+                <span className="text-yellow-400 text-sm font-semibold">{t('about.badge')}</span>
               </div>
             </div>
 
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-              <span className="text-slate-100">Your Trusted Partner in</span>
+              <span className="text-slate-100">{t('about.title1')}</span>
               <br />
-              <span className="text-gradient">Premium Travel</span>
+              <span className="text-gradient">{t('about.title2')}</span>
             </h2>
 
             <p className="text-lg text-slate-400 mb-6 leading-relaxed">
-              With over 8 years of distinguished service in the travel industry, LiaTravel has built a reputation as a trusted advisor for discerning travelers. We combine industry expertise with personalized attention to deliver exceptional travel experiences.
+              {t('about.p1')}
             </p>
 
             <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              Our team of professional consultants works directly with each client to understand their unique preferences and requirements. We leverage our global network of partnerships to secure competitive rates without compromising on quality or service.
+              {t('about.p2')}
             </p>
 
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex-shrink-0 mt-1"></div>
                 <div>
-                  <p className="text-slate-300 font-semibold">Thousands of Satisfied Travelers</p>
-                  <p className="text-slate-400 text-sm">Our clients range from leisure seekers to corporate travelers</p>
+                  <p className="text-slate-300 font-semibold">{t('about.stat1')}</p>
+                  <p className="text-slate-400 text-sm">{t('about.stat1.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex-shrink-0 mt-1"></div>
                 <div>
-                  <p className="text-slate-300 font-semibold">50+ Destinations Covered</p>
-                  <p className="text-slate-400 text-sm">From iconic cities to hidden gems worldwide</p>
+                  <p className="text-slate-300 font-semibold">{t('about.stat2')}</p>
+                  <p className="text-slate-400 text-sm">{t('about.stat2.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex-shrink-0 mt-1"></div>
                 <div>
-                  <p className="text-slate-300 font-semibold">24/7 Travel Support</p>
-                  <p className="text-slate-400 text-sm">Always available when you need us most</p>
+                  <p className="text-slate-300 font-semibold">{t('about.stat3')}</p>
+                  <p className="text-slate-400 text-sm">{t('about.stat3.desc')}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +93,7 @@ export default function About() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl font-bold text-yellow-400 mb-2">8+</div>
-                <p className="text-slate-300 font-semibold">Years of Excellence</p>
+                <p className="text-slate-300 font-semibold">{t('about.years.badge')}</p>
               </div>
             </div>
           </div>
@@ -105,8 +108,8 @@ export default function About() {
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center mb-4">
                 <item.icon className="w-6 h-6 text-slate-900" />
               </div>
-              <h3 className="text-lg font-bold text-slate-100 mb-2">{item.title}</h3>
-              <p className="text-slate-400 text-sm">{item.description}</p>
+              <h3 className="text-lg font-bold text-slate-100 mb-2">{t(item.titleKey)}</h3>
+              <p className="text-slate-400 text-sm">{t(item.descKey)}</p>
             </div>
           ))}
         </div>

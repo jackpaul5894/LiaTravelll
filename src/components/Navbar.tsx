@@ -1,8 +1,18 @@
 import { Plane, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t('nav.home'), href: '#home' },
+    { label: t('nav.services'), href: '#services' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.contact'), href: '#contact' },
+  ];
 
   return (
     <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-xl border-b border-yellow-400/10 z-50">
@@ -15,21 +25,19 @@ export default function Navbar() {
             <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">LiaTravel</span>
           </div>
 
-          <div className="hidden lg:flex space-x-12">
-            {[
-              { label: 'Home', href: '#home' },
-              { label: 'Services', href: '#services' },
-              { label: 'About', href: '#about' },
-              { label: 'Contact', href: '#contact' },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-slate-300 hover:text-yellow-400 transition-colors font-medium"
-              >
-                {item.label}
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center space-x-8">
+            <div className="flex space-x-12">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-slate-300 hover:text-yellow-400 transition-colors font-medium"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <LanguageSwitcher />
           </div>
 
           <button
@@ -44,12 +52,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-slate-900/95 border-t border-yellow-400/10">
           <div className="px-4 py-6 space-y-4">
-            {[
-              { label: 'Home', href: '#home' },
-              { label: 'Services', href: '#services' },
-              { label: 'About', href: '#about' },
-              { label: 'Contact', href: '#contact' },
-            ].map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -59,6 +62,9 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+            <div className="pt-4 border-t border-yellow-400/10">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}

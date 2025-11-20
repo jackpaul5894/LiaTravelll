@@ -4,20 +4,23 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Navbar />
+    <LanguageProvider>
+      <div className="min-h-screen bg-slate-950 text-slate-100">
+        <Navbar />
 
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Contact />
-        <Footer />
-      </main>
-    </div>
+        <main>
+          <Hero />
+          <Services />
+          <About />
+          <Contact />
+          <Footer />
+        </main>
+      </div>
+    </LanguageProvider>
   );
 }
 

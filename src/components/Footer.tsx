@@ -1,6 +1,8 @@
 import { Plane, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-slate-950 border-t border-yellow-400/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -13,33 +15,33 @@ export default function Footer() {
               <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">LiaTravel</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              Premium travel experiences at competitive prices. Your trusted companion for global adventures.
+              {t('footer.description')}
             </p>
-            <p className="text-slate-500 text-xs">© 2025 LiaTravel. All rights reserved.</p>
+            <p className="text-slate-500 text-xs">{t('footer.rights')}</p>
           </div>
 
           <div>
-            <h4 className="text-slate-100 font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-slate-100 font-semibold mb-6">{t('footer.quick')}</h4>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Home</a></li>
-              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Services</a></li>
-              <li><a href="#about" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">About Us</a></li>
-              <li><a href="#contact" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Contact</a></li>
+              <li><a href="#home" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('nav.home')}</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('nav.services')}</a></li>
+              <li><a href="#about" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('nav.about')}</a></li>
+              <li><a href="#contact" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('nav.contact')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-slate-100 font-semibold mb-6">Services</h4>
+            <h4 className="text-slate-100 font-semibold mb-6">{t('services.title2')}</h4>
             <ul className="space-y-3">
-              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Airline Tickets</a></li>
-              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Visa Services</a></li>
-              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Hotel Reservations</a></li>
-              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">Tours & Trips</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('services.airline.title')}</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('services.visa.title')}</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('services.hotel.title')}</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm">{t('services.tours.title')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-slate-100 font-semibold mb-6">Contact</h4>
+            <h4 className="text-slate-100 font-semibold mb-6">{t('nav.contact')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
@@ -60,7 +62,7 @@ export default function Footer() {
         <div className="border-t border-yellow-400/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-500 text-sm mb-6 md:mb-0">
-              Crafted for luxury travelers who demand excellence
+              {t('footer.crafted')}
             </p>
 
             <div className="flex space-x-6">
